@@ -8,11 +8,16 @@ var app = {};
 
 app.apiKey = 'BQEDTLGZNQGJ0GMQM';
 app.apiSimilarArtistsUrl = 'http://developer.echonest.com/api/v4/artist/similar';
-app.apiHottestSongsPart1 = 'http://developer.echonest.com/api/v4/song/search?';
-app.apiHottestSongsPart2 = '&sort=song_hotttnesss-desc&results=30';
+app.apiHottestSongsUrl = 'http://developer.echonest.com/api/v4/song/search';
+app.apiSongSummaryUrl = 'http://developer.echonest.com/api/v4/song/profile';
 
+//Temporary variables; to delete later
+var artist = 'radiohead';
+var similarArtistCode = 'AR0L04E1187B9AE90C';
+var hotttSong = 'SOFRCWS1373EF8FB58';
+//End of temporary variables
 
-
+// Return list of similar artists
 app.getArtists = function() {
 	$.ajax({
 		url: app.apiSimilarArtistsUrl,
@@ -20,19 +25,46 @@ app.getArtists = function() {
 		method: 'GET',
 		data: {
 			api_key: app.apiKey,
-			name: 'radiohead'
+			name: artist
 		}
 	}).then(function(artists){
-		console.log(artists);
 	});
 };
-
-
-// Return list of top songs by similar artists
-
 // Grab artist ID for similar artists
 
-// Search through hottest songs by artist ID and return BPM http://developer.echonest.com/api/v4/song/search?api_key=BQEDTLGZNQGJ0GMQM&artist_id=XXXXXXXXXXXXXX&sort=song_hotttnesss-desc&results=30
+
+// Search through hottest songs by artist ID
+app.getHotSongs = function() {
+	$.ajax({
+		url: app.apiHottestSongsUrl,
+		datatype: 'json',
+		method: 'GET',
+		data: {
+			api_key: app.apiKey,
+			artist_id: similarArtistCode,
+			sort: 'song_hotttnesss-desc',
+			results: '30'
+		}
+	}).then(function(songs){
+	});
+};
+// Grab song ID for each song ID
+
+
+//Search all songs by song ID
+app.songCheck = function() {
+	$.ajax({
+		url: app.apiSongSummaryUrl,
+		datatype: 'json',
+		method: 'GET',
+		data: {
+			api_key: app.apiKey,
+			id: hotttSong,
+			bucket: 'audio_summary'
+		}
+	}).then(function(songs){
+	});
+};
 
 // Filter out songs that do not match BPM criteria
 
@@ -42,7 +74,6 @@ app.getArtists = function() {
 
 
 app.init = function() {
-	app.getArtists();
 };
 
 $(function() {

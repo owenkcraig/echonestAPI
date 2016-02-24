@@ -13,8 +13,8 @@ app.apiSongSummaryUrl = 'http://developer.echonest.com/api/v4/song/profile';
 
 //Temporary variables; to delete later
 var artist = 'radiohead';
-var similarArtistCode = 'AR0L04E1187B9AE90C';
-var hotttSong = 'SOFRCWS1373EF8FB58';
+var userWorkout = 120;
+
 //End of temporary variables
 
 // Return list of similar artists
@@ -53,6 +53,7 @@ app.getHotSongs = function(artistIDs) {
 			}
 		});
 	});
+	// Grab song ID for each song ID
 	$.when.apply(null,songCalls)
 		.then(function() {
 			var songArray = Array.prototype.slice.call(arguments);
@@ -76,25 +77,56 @@ app.getHotSongs = function(artistIDs) {
 				var hotttsong = songs.id;
 				songIDs.push(hotttsong);
 			})
-			console.log(songIDs);
+			app.songCheck(songIDs);
 		});
 };
-// Grab song ID for each song ID
 
 
 //Search all songs by song ID
-app.songCheck = function() {
-	$.ajax({
-		url: app.apiSongSummaryUrl,
-		datatype: 'json',
-		method: 'GET',
-		data: {
-			api_key: app.apiKey,
-			id: hotttSong,
-			bucket: 'audio_summary'
-		}
-	}).then(function(songs){
+app.songCheck = function(songIDs) {
+	var songDetails = songIDs.map(function(id){
+		return $.ajax({
+			url: app.apiSongSummaryUrl,
+			datatype: 'json',
+			method: 'GET',
+			data: {
+				api_key: app.apiKey,
+				id: id,
+				bucket: 'audio_summary'
+			}
+		});
 	});
+	$.when.apply(null,songDetails)
+		.then(function() {
+			var songDetails = Array.prototype.slice.call(arguments);
+			// console.log(songDetails[0][0].response.songs[0].audio_summary.tempo);	
+			var filteredSongDetails = [];
+			$.each(songDetails, function( i,songBPMs) {
+				if(songDetails[i][0].response.songs[0].audio_summary.tempo >= userWorkout &&
+					songDetails[i][0].response.songs[0].audio_summary.tempo <= userWorkout + 20){
+					filteredSongDetails.push(songDetails[i][0].response.songs[0])
+				}
+			})
+			console.log(filteredSongDetails)
+			var filteredSongDetails = songDetails.filter(function(workoutBPM) {
+				return songDetails[0][0].response.songs[0].audio_summary.tempo >= userWorkout;
+			});
+		});
+
+
+
+
+	// $.ajax({
+		// url: app.apiSongSummaryUrl,
+		// datatype: 'json',
+		// method: 'GET',
+		// data: {
+		// 	api_key: app.apiKey,
+		// 	id: songIDs,
+		// 	bucket: 'audio_summary'
+	// 	}
+	// }).then(function(songs){
+	// });
 };
 
 // Filter out songs that do not match BPM criteria

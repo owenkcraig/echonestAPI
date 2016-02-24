@@ -60,11 +60,23 @@ app.getHotSongs = function(artistIDs) {
 			songArray = songArray.map(function(song) {
 				return song[0].response.songs;
 			})
-			console.log(songArray);
-			// for (var i=0; i <= songArray.length; i++) {
-			// 	console.log(songArray[i][0].response.songs);
-			// 	songIDs.push(songArray[i][0].response.songs)
-			// }
+			songArray = songArray.map(function(artistSongs) {
+				var count = 0;
+				return artistSongs.filter( function(song){
+					count += 1;
+					if(count <= 10 ) {
+						return true;
+					} else {
+						return false;
+					}
+				})
+			})
+			songArray = _.flatten(songArray);
+			$.each(songArray, function( i,songs) {
+				var hotttsong = songs.id;
+				songIDs.push(hotttsong);
+			})
+			console.log(songIDs);
 		});
 };
 // Grab song ID for each song ID

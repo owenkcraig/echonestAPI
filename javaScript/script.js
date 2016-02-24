@@ -28,25 +28,44 @@ app.getArtists = function() {
 			name: artist
 		}
 	}).then(function(artists){
+		var artistIDs = [];
+		for (i = 0; i < 3; i++) {
+			artistIDs.push(artists.response.artists[i].id)
+		}
+		app.getHotSongs(artistIDs);
 	});
 };
 // Grab artist ID for similar artists
 
 
 // Search through hottest songs by artist ID
-app.getHotSongs = function() {
-	$.ajax({
-		url: app.apiHottestSongsUrl,
-		datatype: 'json',
-		method: 'GET',
-		data: {
-			api_key: app.apiKey,
-			artist_id: similarArtistCode,
-			sort: 'song_hotttnesss-desc',
-			results: '30'
-		}
-	}).then(function(songs){
+app.getHotSongs = function(artistIDs) {
+	var songCalls = artistIDs.map(function(id){
+		return $.ajax({
+			url: app.apiHottestSongsUrl,
+			datatype: 'json',
+			method: 'GET',
+			data: {
+				api_key: app.apiKey,
+				artist_id: id,
+				sort: 'song_hotttnesss-desc',
+				results: '30'
+			}
+		});
 	});
+	$.when.apply(null,songCalls)
+		.then(function() {
+			var songArray = Array.prototype.slice.call(arguments);
+			var songIDs = [];
+			songArray = songArray.map(function(song) {
+				return song[0].response.songs;
+			})
+			console.log(songArray);
+			// for (var i=0; i <= songArray.length; i++) {
+			// 	console.log(songArray[i][0].response.songs);
+			// 	songIDs.push(songArray[i][0].response.songs)
+			// }
+		});
 };
 // Grab song ID for each song ID
 

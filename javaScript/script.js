@@ -11,9 +11,10 @@ app.apiSimilarArtistsUrl = 'http://developer.echonest.com/api/v4/artist/similar'
 app.apiHottestSongsUrl = 'http://developer.echonest.com/api/v4/song/search';
 app.apiSongSummaryUrl = 'http://developer.echonest.com/api/v4/song/profile';
 
+
 //Temporary variables; to delete later
-var artist = 'radiohead';
-var userWorkout = 120;
+// var artist = 'radiohead';
+// var userWorkout = 120;
 
 //End of temporary variables
 
@@ -25,11 +26,11 @@ app.getArtists = function() {
 		method: 'GET',
 		data: {
 			api_key: app.apiKey,
-			name: artist
+			name: app.userInput
 		}
 	}).then(function(artists){
 		var artistIDs = [];
-		for (i = 0; i < 3; i++) {
+		for (i = 0; i < 7; i++) {
 			artistIDs.push(artists.response.artists[i].id)
 		}
 		app.getHotSongs(artistIDs);
@@ -49,7 +50,7 @@ app.getHotSongs = function(artistIDs) {
 				api_key: app.apiKey,
 				artist_id: id,
 				sort: 'song_hotttnesss-desc',
-				results: '30'
+				results: '6'
 			}
 		});
 	});
@@ -102,29 +103,30 @@ app.songCheck = function(songIDs) {
 			// console.log(songDetails[0][0].response.songs[0].audio_summary.tempo);	
 			var filteredSongDetails = [];
 			$.each(songDetails, function( i,songBPMs) {
-				if(songDetails[i][0].response.songs[0].audio_summary.tempo >= userWorkout &&
-					songDetails[i][0].response.songs[0].audio_summary.tempo <= userWorkout + 20){
+				if(songDetails[i][0].response.songs[0].audio_summary.tempo >= app.userWorkout &&
+					songDetails[i][0].response.songs[0].audio_summary.tempo <= app.userWorkout + 20){
 					filteredSongDetails.push(songDetails[i][0].response.songs[0])
 				}
 			})
 			// console.log(filteredSongDetails)
 			app.displayPlaylist(filteredSongDetails);
 			var filteredSongDetails = songDetails.filter(function(workoutBPM) {
-				return songDetails[0][0].response.songs[0].audio_summary.tempo >= userWorkout;
+				return songDetails[0][0].response.songs[0].audio_summary.tempo >= app.userWorkout;
 			});
 		});
 
 app.displayPlaylist = function(filteredSongDetails) {
 	// console.log(filteredSongDetails[0].artist_name);
-	console.log(filteredSongDetails);
-	// $('#results').empty();
+	// console.log(filteredSongDetails);
+		var songTitle = '';
+		var songArtist = '';
 	$.each(filteredSongDetails, function(i, songDetails){
 		var songTitle = $('<h3>').text(songDetails.title);
 		var songArtist = $('<h3>').text(songDetails.artist_name);
 		var finalSongInfo = $('<div>').addClass('songInfo').append(songTitle, songArtist);
 		$('#results').append(finalSongInfo);
-	console.log(i);
-		console.log(songDetails);
+	// console.log(i);
+		// console.log(songDetails);
 	});
 }
 
@@ -150,6 +152,12 @@ app.displayPlaylist = function(filteredSongDetails) {
 
 
 app.init = function() {
+	$('form').on('submit', function(e) {
+		e.preventDefault();
+		app.userInput = $('input[type=text]').val();
+		app.userWorkout = $('input[type=radio]:checked').val()
+		app.getArtists();
+	});
 };
 
 $(function() {

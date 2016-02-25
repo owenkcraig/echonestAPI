@@ -7,7 +7,7 @@
 	}
 
 	input[type=text], input[type=submit] {
-		padding: 1.5rem;
+		padding: 1.5rem 2rem;
 		border-radius: 100px;
 		border: 2px solid transparent;
 		width: 40%;
@@ -16,10 +16,20 @@
 
 	label {
 		display: inline-block;
-		width: 12%
+		width: 14%;
+		font-family: "Oswald";
+		text-transform: uppercase;
 	}
+
 	input[type=radio] {
 		display: block;
 		margin: 0.5rem auto;
 	}
+	input[type=submit] {
+		background: $blue;
+		color: #fff;
+
+	}
+
+
 }

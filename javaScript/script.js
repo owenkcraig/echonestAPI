@@ -30,7 +30,7 @@ app.getArtists = function() {
 		}
 	}).then(function(artists){
 		var artistIDs = [];
-		for (i = 0; i < 7; i++) {
+		for (i = 0; i < 3; i++) {
 			artistIDs.push(artists.response.artists[i].id)
 		}
 		app.getHotSongs(artistIDs);
@@ -50,7 +50,7 @@ app.getHotSongs = function(artistIDs) {
 				api_key: app.apiKey,
 				artist_id: id,
 				sort: 'song_hotttnesss-desc',
-				results: '6'
+				results: '4'
 			}
 		});
 	});
@@ -99,8 +99,7 @@ app.songCheck = function(songIDs) {
 	});
 	$.when.apply(null,songDetails)
 		.then(function() {
-			var songDetails = Array.prototype.slice.call(arguments);
-			// console.log(songDetails[0][0].response.songs[0].audio_summary.tempo);	
+			var songDetails = Array.prototype.slice.call(arguments);	
 			var filteredSongDetails = [];
 			$.each(songDetails, function( i,songBPMs) {
 				if(songDetails[i][0].response.songs[0].audio_summary.tempo >= app.userWorkout &&
@@ -108,13 +107,15 @@ app.songCheck = function(songIDs) {
 					filteredSongDetails.push(songDetails[i][0].response.songs[0])
 				}
 			})
-			// console.log(filteredSongDetails)
-			app.displayPlaylist(filteredSongDetails);
-			var filteredSongDetails = songDetails.filter(function(workoutBPM) {
-				return songDetails[0][0].response.songs[0].audio_summary.tempo >= app.userWorkout;
+			filteredSongDetails = songDetails.filter(function(song) {
+				// console.log(song)
+				return song[0].response.songs[0].audio_summary.tempo >= app.userWorkout;
 			});
-			var randomFilteredSongDetails = filteredSongDetails[Math.floor(Math.random()*filteredSongDetails.length)];
-			console.log(randomFilteredSongDetails);
+			filteredSongDetails = app.shuffle(filteredSongDetails);
+			filteredSongDetails = filteredSongDetails.map(function(song) {
+				return song[0].response.songs[0];
+			})
+			app.displayPlaylist(filteredSongDetails);
 		});
 
 	app.displayPlaylist = function(filteredSongDetails) {
@@ -127,8 +128,6 @@ app.songCheck = function(songIDs) {
 			var songArtist = $('<h3>').text(songDetails.artist_name);
 			var finalSongInfo = $('<div>').addClass('songInfo').append(songTitle, songArtist);
 			$('#results').append(finalSongInfo);
-		// console.log(i);
-			// console.log(songDetails);
 		});
 	}
 };
@@ -139,6 +138,23 @@ app.songCheck = function(songIDs) {
 
 // Display playlist in working functionality
 
+app.shuffle = function(songDetails) {
+	var m = songDetails.length, t, i;
+
+	// While there remain elements to shuffle…
+				  while (m) {
+
+				    // Pick a remaining element…
+				    i = Math.floor(Math.random() * m--);
+
+				    // And swap it with the current element.
+				    t = songDetails[m];
+				    songDetails[m] = songDetails[i];
+				    songDetails[i] = t;
+				  }
+
+				  return songDetails;
+				};
 
 app.init = function() {
 	$('form').on('submit', function(e) {

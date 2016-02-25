@@ -3,15 +3,21 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Jazzercise | Find Your Groove</title>
+	<link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700|Lato:400,300,700,100' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
 	<div class="background">
+	<div class="gradient">
 		<div class="wrapper">
 			<header>
-				<img src="images/logo.svg" alt="">
-				<h1>Jazzercise</h1>
-				<h2>Music with your heartbeat</h2>	
+				<div class="imgFlex">
+					<img src="images/logo.svg" alt="">
+				</div>
+				<div class="flex">
+					<h1>Jazzercise</h1>
+					<h2>Music with your heartbeat</h2>	
+				</div>
 			</header>
 			<div class="userinput">
 				<form action="">
@@ -19,12 +25,11 @@
 						<input type="text" placeholder="Find music similar to...">
 					</section>
 					<section class="workout">
-						<label for="low">Low</label>
-						<input type="radio" name="workoutIntensity" value="120">
-						<label for="medium">Medium</label>
-						<input type="radio" name="workoutIntensity" value="140">
-						<label for="hard">Hard</label>
-						<input type="radio" name="workoutIntensity" value="160">
+						<label for="low"><input type="radio" name="workoutIntensity" value="120">
+						Low</label>
+						<label for="medium"><input type="radio" name="workoutIntensity" value="140">
+						Medium</label>
+						<label for="hard"><input type="radio" name="workoutIntensity" value="160">Hard</label>
 					</section>
 					<section class="submitButton">
 						<input type="submit" value="Find me a playlist">
@@ -38,6 +43,7 @@
 					<img src="images/echonestLogo.png" alt="">
 				</div>
 			</section>
+		</div>
 		</div>
 	</div>
 		<footer>

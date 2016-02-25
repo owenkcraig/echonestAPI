@@ -1,0 +1,25 @@
+.userinput {
+	text-align: center;
+	color: #fff;
+
+	input, input:focus, input:active, ::-webkit-input-placeholder {
+		outline: none;
+	}
+
+	input[type=text], input[type=submit] {
+		padding: 1.5rem;
+		border-radius: 100px;
+		border: 2px solid transparent;
+		width: 40%;
+		margin: 3rem;
+	}
+
+	label {
+		display: inline-block;
+		width: 12%
+	}
+	input[type=radio] {
+		display: block;
+		margin: 0.5rem auto;
+	}
+}

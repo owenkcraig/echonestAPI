@@ -113,35 +113,24 @@ app.songCheck = function(songIDs) {
 			var filteredSongDetails = songDetails.filter(function(workoutBPM) {
 				return songDetails[0][0].response.songs[0].audio_summary.tempo >= app.userWorkout;
 			});
+			var randomFilteredSongDetails = filteredSongDetails[Math.floor(Math.random()*filteredSongDetails.length)];
+			console.log(randomFilteredSongDetails);
 		});
 
-app.displayPlaylist = function(filteredSongDetails) {
-	// console.log(filteredSongDetails[0].artist_name);
-	// console.log(filteredSongDetails);
-		var songTitle = '';
-		var songArtist = '';
-	$.each(filteredSongDetails, function(i, songDetails){
-		var songTitle = $('<h3>').text(songDetails.title);
-		var songArtist = $('<h3>').text(songDetails.artist_name);
-		var finalSongInfo = $('<div>').addClass('songInfo').append(songTitle, songArtist);
-		$('#results').append(finalSongInfo);
-	// console.log(i);
-		// console.log(songDetails);
-	});
-}
-
-
-	// $.ajax({
-		// url: app.apiSongSummaryUrl,
-		// datatype: 'json',
-		// method: 'GET',
-		// data: {
-		// 	api_key: app.apiKey,
-		// 	id: songIDs,
-		// 	bucket: 'audio_summary'
-	// 	}
-	// }).then(function(songs){
-	// });
+	app.displayPlaylist = function(filteredSongDetails) {
+		// console.log(filteredSongDetails[0].artist_name);
+		// console.log(filteredSongDetails);
+			var songTitle = '';
+			var songArtist = '';
+		$.each(filteredSongDetails, function(i, songDetails){
+			var songTitle = $('<h3>').text(songDetails.title);
+			var songArtist = $('<h3>').text(songDetails.artist_name);
+			var finalSongInfo = $('<div>').addClass('songInfo').append(songTitle, songArtist);
+			$('#results').append(finalSongInfo);
+		// console.log(i);
+			// console.log(songDetails);
+		});
+	}
 };
 
 // Filter out songs that do not match BPM criteria

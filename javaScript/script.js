@@ -107,13 +107,26 @@ app.songCheck = function(songIDs) {
 					filteredSongDetails.push(songDetails[i][0].response.songs[0])
 				}
 			})
-			console.log(filteredSongDetails)
+			// console.log(filteredSongDetails)
+			app.displayPlaylist(filteredSongDetails);
 			var filteredSongDetails = songDetails.filter(function(workoutBPM) {
 				return songDetails[0][0].response.songs[0].audio_summary.tempo >= userWorkout;
 			});
 		});
 
-
+app.displayPlaylist = function(filteredSongDetails) {
+	// console.log(filteredSongDetails[0].artist_name);
+	console.log(filteredSongDetails);
+	// $('#results').empty();
+	$.each(filteredSongDetails, function(i, songDetails){
+		var songTitle = $('<h3>').text(songDetails.title);
+		var songArtist = $('<h3>').text(songDetails.artist_name);
+		var finalSongInfo = $('<div>').addClass('songInfo').append(songTitle, songArtist);
+		$('#results').append(finalSongInfo);
+	console.log(i);
+		console.log(songDetails);
+	});
+}
 
 
 	// $.ajax({

@@ -20,18 +20,19 @@
 			</header>
 			<div class="userinput">
 				<form action="">
-					<section class="music">
-						<input type="text" placeholder="Find music similar to...">
-					</section>
-					<section class="workout">
-						<label for="low"><input type="radio" name="workoutIntensity" value="120">
-						Low</label>
-						<label for="medium"><input type="radio" name="workoutIntensity" value="140">
-						Medium</label>
-						<label for="hard"><input type="radio" name="workoutIntensity" value="160">Hard</label>
-					</section>
+					<fieldset class="music">
+						<input type="text" placeholder="Find music similar to..." id="artistInput" required="required">
+					</fieldset>
+					<fieldset class="workout">
+						<label for="low">Low</label>
+						<input type="radio" name="workoutIntensity" value="120" id="low" required="required">
+						<label for="medium">Medium</label>
+						<input type="radio" name="workoutIntensity" value="140" id="medium" required="required">
+						<label for="hard">Hard</label>
+						<input type="radio" name="workoutIntensity" value="160" id="hard" required="required">
+					</fieldset>
 					<section class="submitButton">
-						<input type="submit" value="Find me a playlist">
+						<input type="submit" class="submit" value="Find me a playlist">
 					</section>
 				</form>
 			</div>

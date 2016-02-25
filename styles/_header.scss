@@ -6,12 +6,14 @@ header {
 	align-items: flex-end;
 
 	.imgFlex {
-		flex: 1 0 30%;
+		flex: 1 0 calc(30% - 2rem);
 		padding: 2rem 2rem 0;
+		margin-right: 2rem;
 
 		img {
-			width: 70%;
+			width: 90%;
 			margin: 0 15%;
+			display: block;
 		}
 	}
 

@@ -166,6 +166,10 @@ app.init = function() {
 };
 
 $(function() {
+	$('.workout label').on('click',  function() {
+		$('.workout label').removeClass("selected");
+		$(this).addClass("selected");
+	}); //End of radio button click styles
 	app.init();
 });
 

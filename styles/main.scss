@@ -2,6 +2,9 @@
 $blue: #016FB9;
 $red: #EC4E20; 
 $yellow: #FF9505;
+$resultsBlue: rgba(1,111,185,0.5);
+$resultsRed: rgba(236,78,32, 0.5);
+$resultsYellow: rgba(255,149,5,0.5);
 
 
 .wrapper {
@@ -14,6 +17,7 @@ $yellow: #FF9505;
 	width: 100%;
 	background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)), url("../images/iStock_000055724760_Medium.jpg"), linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
 	background-position: center;
+	background-attachment: fixed;
 	background-size: cover;
 	padding: 2rem;
 	color: #fff;
@@ -23,5 +27,6 @@ $yellow: #FF9505;
 @import "_typo";
 @import "_header";
 @import "_userinput";
+@import "_results";
 
 //comment

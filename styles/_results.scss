@@ -1,0 +1,13 @@
+.results {
+	display: flex;
+	flex-flow: row wrap;
+	.songInfo {
+		flex: 1 0 33%;
+		background-color: $resultsYellow;
+		border: 1px solid black;
+		text-align: center;
+		h4 {
+			font-style: italic;
+		}
+	}
+}

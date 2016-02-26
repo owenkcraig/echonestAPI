@@ -27,7 +27,7 @@ app.getArtists = function() {
 			sort: 'song_hotttnesss-desc',
 			artist: app.userInput,
 			type :'artist-radio',
-			results: 30
+			results: 18
 		}
 
 	}).then(function(artists){
@@ -42,7 +42,7 @@ app.displayPlaylist = function(filteredSongDetails) {
 	var songTitle = '';
 		$.each(songs, function(i, songDetails){
 			var songTitle = $('<h3>').text(songDetails.title);
-			var songArtist = $('<h3>').text(songDetails.artist_name);
+			var songArtist = $('<h4>').text(songDetails.artist_name);
 			var finalSongInfo = $('<div>').addClass('songInfo').append(songTitle, songArtist);
 			$('#results').append(finalSongInfo);
 		});

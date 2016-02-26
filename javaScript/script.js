@@ -45,6 +45,14 @@ app.displayPlaylist = function(filteredSongDetails) {
 			var songArtist = $('<h4>').text(songDetails.artist_name);
 			var finalSongInfo = $('<div>').addClass('songInfo').append(songTitle, songArtist);
 			$('#results').append(finalSongInfo);
+			console.log(app.userWorkoutMin);
+			if (app.userWorkoutMin == 120) {
+			    $('.songInfo').addClass("blue");
+			} else if (app.userWorkoutMin == 140) {
+			    $('.songInfo').addClass("yellow");
+			} else {
+			    $('.songInfo').addClass("red");
+			}
 		});
 	};
 
@@ -54,8 +62,6 @@ app.init = function() {
 		app.userInput = $('input[type=text]').val();
 		app.userWorkoutMin = $('input[type=radio]:checked').val();
 		app.userWorkoutMax = parseFloat(app.userWorkoutMin) + parseFloat(20);
-		console.log(app.userWorkoutMin);
-		console.log(app.userWorkoutMax);
 		app.getArtists();
 	});
 };

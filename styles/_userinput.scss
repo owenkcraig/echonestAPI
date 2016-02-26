@@ -6,7 +6,7 @@
 		border: none;
 	}
 
-	input, input:focus, input:active, ::-webkit-input-placeholder {
+	input, input:focus, input:active, ::-webkit-input-placeholder, summary:focus, summary:active {
 		outline: none;
 	}
 
@@ -56,15 +56,75 @@
 			border: 10px solid $blue;
 		}
 	
+		label[for=low]:hover::before {
+			border: 10px solid $white;
+		}
+
 		label[for=medium]::before  {
 			border: 10px solid $yellow;
+		}
+
+		label[for=medium]:hover::before {
+			border: 10px solid $white;
 		}
 
 		label[for=hard]::before  {
 			border: 10px solid $red;
 		}
-	
-	
+
+		label[for=hard]:hover::before {
+			border: 10px solid $white;
+		}
+		
+		/* specific heights */
+		details {
+		padding: 15px 0 15px;
+		max-width: 300px;
+		margin: 0 auto;
+		transition: 1s all ease;
+		transition: height 1s ease;
+		}
+
+		details summary {
+			opacity: .8;
+			padding: 10px;
+			border-radius: 10px;
+			background-color: rgba(0,0,0,.7);
+			&:hover {
+				opacity: 1;
+			}
+		}
+
+		details:not([open]) { height: 1.25em; }
+		details[open] { height: 9.50em; }
+
+		/* specific animation */
+		/* http://daneden.me/animate/ */
+		// @keyframes fadeInDown {
+		// 	0% {
+		// 		opacity: 0;
+		// 		transform: translateY(-1.25em);
+		// 	}
+		// 	50% {
+		// 		opacity: 1;
+		// 		transform: translateY(0);
+		// 	}
+		// }
+
+		summary::-webkit-details-marker {
+			display: none;
+		}
+
+		details summary::before {
+			content:'+';
+			float: left;
+			padding: 0 12px;
+		}
+
+		details[open] summary::before {
+			content: '-'
+		}
+
 	.selected {
 		&::after {
 			content: '';
@@ -78,8 +138,9 @@
 			background: $white;
 			border-radius: 50%;
 			z-index: 10;
+			}
 		}
-	}
+
 		label[for=low].selected::after {
 			border: 10px solid $blue;
 		}
@@ -97,11 +158,20 @@
 		display: block;
 		margin: 0.5rem auto;
 	}
+
 	input[type=submit] {
-		background: $blue;
+		background: rgba(0,0,0,.3);
+		border: 3px solid $white;
 		color: $white;
-
+		transition: .5s all ease;
+		&:hover {
+			background-color: white;
+			color: $blue;
+			border: 3px solid $blue;
+		}
+		&:active {
+		transition: 0.5s;
+   		width: 110px; 
+		}
 	}
-
-
 }

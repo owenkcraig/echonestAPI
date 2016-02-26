@@ -24,7 +24,7 @@ app.getArtists = function() {
 			min_tempo: app.userWorkoutMin,
 			max_tempo : app.userWorkoutMax,
             bucket: ['audio_summary','song_hotttnesss','tracks', 'id:spotify'],
-			// song_max_hotttnesss: '1',
+			song_max_hotttnesss: '1',
 			sort: 'song_hotttnesss-desc',
 			artist: app.userInput,
 			type :'artist-radio',
@@ -66,18 +66,19 @@ app.displayPlaylist = function(filteredSongDetails) {
         songIDs = songIDs.toString().replace("spotify:track:", "");
         console.log(songIDs)
         app.getSpotifyPlayButton(songIDs)
-        app.getPlaylist(songIDs)
+        // app.getPlaylist(songIDs)
 }
 
 app.getSpotifyPlayButton = function(songIDs) {
-    var embed = '<iframe src="https://embed.spotify.com/?uri=spotify:track:TRACKS" style="width:640px; height:520px;" frameborder="0" allowtransparency="true"></iframe>';
+    var embed = '<iframe src="https://embed.spotify.com/?uri=spotify:trackset:workout:TRACKS" style="width:1300px; height:1200px;" frameborder="0" allowtransparency="true"></iframe>';
             // console.log(spotifySon
     var tracks = songIDs;
     console.log(tracks)
     var tembed = embed.replace('TRACKS', tracks);
     // tembed = tembed.replace('PREFEREDTITLE', title);
-    var playlist = $("div").html(tembed);
-        $('#results').append(playlist);
+    var playlist = $("<div>").html(tembed);
+    $('#results').append(playlist);
+    app.getPlaylist(tracks);
 }
 
 // app.getSpotifyPlayer = function(songIDs, callback) {

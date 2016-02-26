@@ -19,6 +19,12 @@
 		background-color: $white;
 	}
 
+	input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px $white inset;
+	border: 1px solid $white;
+}
+	
+
 	input[type="radio"] {
 		visibility: hidden;
 		position: absolute;
@@ -41,11 +47,24 @@
 			position: absolute;
 			left: 50px;
 			top: -42px;
-			border: 10px solid blue;
 			border-radius: 50%;
 			z-index: 5;
+			}
 		}
-	}
+		
+		label[for=low]::before {
+			border: 10px solid $blue;
+		}
+	
+		label[for=medium]::before  {
+			border: 10px solid $yellow;
+		}
+
+		label[for=hard]::before  {
+			border: 10px solid $red;
+		}
+	
+	
 	.selected {
 		&::after {
 			content: '';
@@ -55,12 +74,24 @@
 			position: absolute;
 			left: 50px;
 			top: -42px;
-			border: 10px solid blue;
+			// border: 10px solid blue;
 			background: $white;
 			border-radius: 50%;
 			z-index: 10;
 		}
 	}
+		label[for=low].selected::after {
+			border: 10px solid $blue;
+		}
+	
+		label[for=medium].selected::after  {
+			border: 10px solid $yellow;
+		}
+
+		label[for=hard].selected::after  {
+			border: 10px solid $red;
+		}
+	
 
 	input[type=radio] {
 		display: block;

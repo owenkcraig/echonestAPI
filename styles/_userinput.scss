@@ -16,6 +16,7 @@
 		border: 2px solid transparent;
 		width: 40%;
 		margin: 3rem;
+		background-color: $white;
 	}
 
 	input[type="radio"] {
@@ -30,6 +31,7 @@
 		text-transform: uppercase;
 		position: relative;
 		margin-top: 30px;
+		color: $white;
 
 		&::before {
 			content: '';
@@ -54,7 +56,7 @@
 			left: 50px;
 			top: -42px;
 			border: 10px solid blue;
-			background: beige;
+			background: $white;
 			border-radius: 50%;
 			z-index: 10;
 		}
@@ -66,7 +68,7 @@
 	}
 	input[type=submit] {
 		background: $blue;
-		color: #fff;
+		color: $white;
 
 	}
 

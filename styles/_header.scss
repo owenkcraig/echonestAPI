@@ -5,6 +5,10 @@ header {
 	margin: 3rem auto 2rem;
 	align-items: flex-end;
 
+	h1 {
+		color: $white;
+	}
+
 	.imgFlex {
 		flex: 1 0 calc(30% - 2rem);
 		padding: 2rem 2rem 0;
@@ -23,6 +27,7 @@ header {
 
 		h2 {
 			margin-bottom: 0;
+			color: $white;
 		}
 	}
 }

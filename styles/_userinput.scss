@@ -462,6 +462,13 @@
 	}
 }
 
+@media (max-width: 640px) {
+	.userinput input[type=text], 
+	.userinput input[type=submit] {
+		width: 55%;
+	}
+}
+
 @media (max-width: 610px) {
 	.userinput label::before {
 		left: 20px;
@@ -473,9 +480,6 @@
 	}
 }
 
-@media (max-width: 580px) {
-	
-}
 
 @media (max-width: 560px) {
 	.userinput label::before {
@@ -514,6 +518,13 @@
 	}
 }
 
+@media (max-width: 495px) {
+	.userinput input[type=text], 
+	.userinput input[type=submit] {
+		width: 65%;
+	}
+}
+
 @media (max-width: 480px) {
 	.userinput label::before {
 		left: 10px;
@@ -537,6 +548,15 @@
 		&::after {
 			left: 10px;
 		}
+	}
+}
+
+@media(max-width: 430px) {
+	.userinput input[type=text], 
+	.userinput input[type=submit] {
+		width: 80%;
+		margin-left: 0;
+		margin-right: 0;
 	}
 }
 

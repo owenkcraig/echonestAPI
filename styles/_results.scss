@@ -23,3 +23,11 @@
 		background-color: $resultsRed;
 	}
 }
+
+.playlist {
+	flex: 1 100%;
+	iframe {
+		width:100%; 
+		min-height:800px;
+	}
+}

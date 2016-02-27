@@ -71,13 +71,13 @@ app.displayPlaylist = function(filteredSongDetails, data) {
 }
 
 app.getSpotifyPlayButton = function(songIDs) {
-    var embed = '<iframe src="https://embed.spotify.com/?uri=spotify:trackset:workout:TRACKS" style="width:1300px; height:1200px;" frameborder="0" allowtransparency="true"></iframe>';
+    var embed = '<iframe src="https://embed.spotify.com/?uri=spotify:trackset:workout:TRACKS" style= frameborder="0" allowtransparency="true"></iframe>';
             // console.log(spotifySon
     var tracks = songIDs;
     console.log(tracks)
     var tembed = embed.replace('TRACKS', tracks);
     // tembed = tembed.replace('PREFEREDTITLE', title);
-    var playlist = $("<div>").html(tembed);
+    var playlist = $("<div class='playlist'>").html(tembed);
     $('#results').append(playlist);
     app.getPlaylist(tracks);
 }

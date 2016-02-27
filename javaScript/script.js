@@ -125,6 +125,11 @@ $(function() {
 		$(this).addClass("selected");
 	}); //End of radio button click styles
 	app.init();
+    $('#moreInfo').click(function(e) {
+        e.preventDefault();
+        $('.toggleDiv').slideToggle('slow', function(){
+        });
+    });
 });
 
 

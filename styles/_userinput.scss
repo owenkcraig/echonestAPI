@@ -6,7 +6,7 @@
 		border: none;
 	}
 
-	input, input:focus, input:active, ::-webkit-input-placeholder, summary:focus, summary:active {
+	input, input:focus, input:active, ::-webkit-input-placeholder, a {
 		outline: none;
 	}
 
@@ -22,8 +22,7 @@
 	input:-webkit-autofill {
 	-webkit-box-shadow: 0 0 0px 1000px $white inset;
 	border: 1px solid $white;
-}
-	
+	}
 
 	input[type="radio"] {
 		visibility: hidden;
@@ -68,55 +67,6 @@
 		label[for=hard]:hover::before {
 			border: 10px solid $white;
 		}
-		
-		/* specific heights */
-		details {
-		padding: 15px 0 15px;
-		max-width: 300px;
-		margin: 0 auto;
-		transition: 1s all ease;
-		transition: height 1s ease;
-		}
-
-		details summary {
-			opacity: .8;
-			padding: 10px;
-			border-radius: 10px;
-			background-color: rgba(0,0,0,.7);
-			&:hover {
-				opacity: 1;
-			}
-		}
-
-		details:not([open]) { height: 1.25em; }
-		details[open] { height: 9.50em; }
-
-		/* specific animation */
-		/* http://daneden.me/animate/ */
-		// @keyframes fadeInDown {
-		// 	0% {
-		// 		opacity: 0;
-		// 		transform: translateY(-1.25em);
-		// 	}
-		// 	50% {
-		// 		opacity: 1;
-		// 		transform: translateY(0);
-		// 	}
-		// }
-
-		summary::-webkit-details-marker {
-			display: none;
-		}
-
-		details summary::before {
-			content:'+';
-			float: left;
-			padding: 0 12px;
-		}
-
-		details[open] summary::before {
-			content: '-'
-		}
 
 		label[for=hard]::before  {
 			border: 10px solid $red;
@@ -155,6 +105,54 @@
 		display: block;
 		margin: 0.5rem auto;
 	}
+	
+	.toggle {
+		margin: 0 auto;
+		padding-top: 10px;
+	}
+	
+	a#moreInfo {
+		text-decoration: none;
+		// font-weight: bold;
+		color: $white;
+		&:visited {
+			color:$white;
+		}
+	}
+
+	#moreInfo {
+		max-width:100px
+	}
+
+	#moreInfo::before {
+		content:"+";
+		padding:10px 10px 0;
+		&:hover {
+			opacity: .8;
+		}
+	}
+
+	#moreInfo:active::before {
+		padding:10px 10px 0;
+		opacity:1;
+	}
+
+	div.toggleDiv {
+		display: none;
+		margin: 0 auto;
+		max-width: 400px;
+		padding:10px;
+		background-color: rgba(0,0,0,.4);
+		p.blue {
+			color:$blue;
+		}
+		p.yellow {
+			color: $yellow;
+		}
+		p.red {
+			color: $red;
+		}
+	}
 
 	input[type=submit] {
 		background: rgba(0,0,0,.3);
@@ -172,3 +170,414 @@
 		}
 	}
 }
+
+//******************************
+//Media Queries Styles
+//******************************
+
+@media (max-width: 1044px) {
+	header {
+		width: 70%;
+		display: flex;
+		flex-flow: row wrap;
+		margin: 3rem auto 2rem;
+		align-items: flex-end;
+
+		.imgFlex {
+			flex: 1 0 calc(30% - 2rem);
+			padding: 2rem 2rem 0;
+			margin-right: 2rem;
+
+			img {
+				width: 90%;
+				margin: 0 15%;
+				display: block;
+			}
+		}
+
+		div.flex {
+			flex: 1 0 70%;
+			margin: 0;
+		}
+	}
+
+	.userinput label::before {
+		left: 44px;
+	}
+	.userinput .selected {
+		&::after {
+			left: 44px;
+		}
+	}
+}
+
+
+@media (max-width: 1043px) {
+	.userinput label::before {
+		left: 49px;
+	}
+	.userinput .selected {
+		&::after {
+			left: 49px;
+		}
+	}
+}
+
+@media (max-width: 1005px) {
+	.userinput label::before {
+		left: 47px;
+	}
+	.userinput .selected {
+		&::after {
+			left: 47px;
+		}
+	}
+}
+
+@media (max-width: 944px) {
+	.userinput label::before {
+		left: 43px;
+	}
+	.userinput .selected {
+		&::after {
+			left: 43px;
+		}
+	}
+}
+
+@media (max-width: 884px) {
+	.userinput label::before {
+		left: 38px;
+	}
+	.userinput .selected {
+		&::after {
+			left: 38px;
+		}
+	}
+}
+
+@media (max-width: 845px) {
+	.userinput label::before {
+		left: 36px;
+	}
+	.userinput .selected {
+		&::after {
+			left: 36px;
+		}
+	}
+}
+
+@media (max-width: 845px) {
+	.userinput label::before {
+		left: 34px;
+	}
+	.userinput .selected {
+		&::after {
+			left: 34px;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.userinput label::before {
+		left: 30px;
+	}
+	.userinput .selected {
+		&::after {
+			left: 30px;
+		}
+	}
+}
+
+@media (max-width: 685px) {
+	.userinput label::before {
+		left: 26px;
+	}
+	.userinput .selected {
+		&::after {
+			left: 26px;
+		}
+	}
+}
+
+@media (max-width: 650px) {
+	.userinput label::before {
+		left: 22px;
+	}
+	.userinput .selected {
+		&::after {
+			left: 22px;
+		}
+	}
+}
+
+@media (max-width: 610px) {
+	.userinput label::before {
+		left: 20px;
+	}
+	.userinput .selected {
+		&::after {
+			left: 20px;
+		}
+	}
+}
+
+//******************************
+//Media Queries Styles
+//******************************
+
+@media (max-width: 1044px) {
+	header {
+		width: 70%;
+		display: flex;
+		flex-flow: row wrap;
+		margin: 3rem auto 2rem;
+		align-items: flex-end;
+
+		.imgFlex {
+			flex: 1 0 calc(30% - 2rem);
+			padding: 2rem 2rem 0;
+			margin-right: 2rem;
+
+			img {
+				width: 90%;
+				margin: 0 15%;
+				display: block;
+			}
+		}
+
+		div.flex {
+			flex: 1 0 70%;
+			margin: 0;
+		}
+	}
+
+	.userinput label::before {
+		left: 44px;
+	}
+	.userinput .selected {
+		&::after {
+			left: 44px;
+		}
+	}
+}
+
+
+@media (max-width: 1043px) {
+	.userinput label::before {
+		left: 49px;
+	}
+	.userinput .selected {
+		&::after {
+			left: 49px;
+		}
+	}
+}
+
+@media (max-width: 1005px) {
+	.userinput label::before {
+		left: 47px;
+	}
+	.userinput .selected {
+		&::after {
+			left: 47px;
+		}
+	}
+}
+
+@media (max-width: 944px) {
+	.userinput label::before {
+		left: 43px;
+	}
+	.userinput .selected {
+		&::after {
+			left: 43px;
+		}
+	}
+}
+
+@media (max-width: 884px) {
+	.userinput label::before {
+		left: 38px;
+	}
+	.userinput .selected {
+		&::after {
+			left: 38px;
+		}
+	}
+}
+
+@media (max-width: 845px) {
+	.userinput label::before {
+		left: 36px;
+	}
+	.userinput .selected {
+		&::after {
+			left: 36px;
+		}
+	}
+}
+
+@media (max-width: 845px) {
+	.userinput label::before {
+		left: 34px;
+	}
+	.userinput .selected {
+		&::after {
+			left: 34px;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.userinput label::before {
+		left: 30px;
+	}
+	.userinput .selected {
+		&::after {
+			left: 30px;
+		}
+	}
+}
+
+@media (max-width: 685px) {
+	.userinput label::before {
+		left: 26px;
+	}
+	.userinput .selected {
+		&::after {
+			left: 26px;
+		}
+	}
+}
+
+@media (max-width: 650px) {
+	.userinput label::before {
+		left: 22px;
+	}
+	.userinput .selected {
+		&::after {
+			left: 22px;
+		}
+	}
+}
+
+@media (max-width: 610px) {
+	.userinput label::before {
+		left: 20px;
+	}
+	.userinput .selected {
+		&::after {
+			left: 20px;
+		}
+	}
+}
+
+@media (max-width: 580px) {
+	
+}
+
+@media (max-width: 560px) {
+	.userinput label::before {
+		left: 17px;
+	}
+	.userinput .selected {
+		&::after {
+			left: 17px;
+		}
+	}
+}
+
+@media (max-width: 540px) {
+	label {
+		margin:0 10px 0;
+	}
+	
+	.userinput label::before {
+		left: 17px;
+	}
+	.userinput .selected {
+		&::after {
+			left: 17px;
+		}
+	}
+}
+
+@media (max-width: 520px) {
+	.userinput label::before {
+		left: 14px;
+	}
+	.userinput .selected {
+		&::after {
+			left: 14px;
+		}
+	}
+}
+
+@media (max-width: 480px) {
+	.userinput label::before {
+		left: 10px;
+	}
+	.userinput .selected {
+		&::after {
+			left: 10px;
+		}
+	}
+}
+
+@media (max-width: 445px) {
+	label[for=hard] {
+		margin-left: 20px;
+	}
+
+	.userinput label::before {
+		left: 10px;
+	}
+	.userinput .selected {
+		&::after {
+			left: 10px;
+		}
+	}
+}
+
+@media (max-width: 400px) {
+	.userinput label::before {
+		left: 8px;
+	}
+	.userinput .selected {
+		&::after {
+			left: 8px;
+		}
+	}
+}
+
+@media (max-width: 365px) {
+	label {
+		margin: 0 20px 0;
+	}
+
+	.userinput label::before {
+		left: 8px;
+	}
+	.userinput .selected {
+		&::after {
+			left: 8px;
+		}
+	}
+}
+
+@media (max-width: 365px) {
+	label {
+		margin: 0 10px 0;
+	}
+
+	.userinput label::before {
+		left: 4px;
+	}
+	.userinput .selected {
+		&::after {
+			left: 4px;
+		}
+	}
+}
+

@@ -40,11 +40,6 @@ $resultsYellow: rgba(255,149,5,0.5);
 	.background {
 		background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)), url("../images/heroImageMedium.jpg"), linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
 	}
-	.results {
-		.songInfo {
-		flex: 1 0 50%;
-		}
-	}
 }
 
 // Landscape phones and down
@@ -58,10 +53,5 @@ $resultsYellow: rgba(255,149,5,0.5);
 @media (max-width: 480px) {
 	.background {
 		background-size: cover;
-	}
-	.results {
-		.songInfo {
-		flex: 1 0 100%;
-		}
 	}
 }

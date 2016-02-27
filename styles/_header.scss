@@ -2,7 +2,7 @@ header {
 	width: 70%;
 	display: flex;
 	flex-flow: row wrap;
-	margin: 3rem auto 2rem;
+	margin: 48px auto 32px;
 	align-items: flex-end;
 
 	h1 {
@@ -10,12 +10,12 @@ header {
 	}
 
 	.imgFlex {
-		flex: 1 0 calc(30% - 2rem);
-		padding: 2rem 2rem 0;
-		margin-right: 2rem;
+		flex: 1 0 calc(30% - 25px);
+		padding: 32px 32px 0;
+		margin-right: 10px;
 
 		img {
-			width: 90%;
+			width: 100px;
 			margin: 0 15%;
 			display: block;
 		}
@@ -29,5 +29,43 @@ header {
 			margin-bottom: 0;
 			color: $white;
 		}
+	}
+}
+
+//******************************
+//Media Queries Styles
+//******************************
+
+// Landscape phone to portrait table-layout
+@media (max-width: 940px) {
+	header {
+		text-align: center;
+		.imgFlex {
+			flex: 1 0 calc(100% - 25px);
+			padding-top: 0;
+			margin: 0 auto;
+			img {
+				margin: 0 auto;
+			}
+		}
+		div.flex {
+			flex: 1 0 100%;
+		}
+	}
+}
+
+// Landscape phones and down
+@media (max-width: 767px) {
+	
+}
+
+//Portrait phones and down
+@media (max-width: 480px) {
+	h1 {
+	  font-size: 2.5rem;
+	}
+
+	h2 {
+	  font-size: 1.3rem;
 	}
 }

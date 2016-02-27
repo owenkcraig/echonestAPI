@@ -16,9 +16,8 @@ $resultsYellow: rgba(255,149,5,0.5);
 
 .background {
 	width: 100%;
-	background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)), url("../images/iStock_000055724760_Medium.jpg"), linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
+	background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)), url("../images/heroImageLarge.jpg"), linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
 	background-position: center;
-	// background-attachment: fixed;
 	background-size: cover;
 	padding: 2rem;
 	color: #fff;
@@ -34,8 +33,33 @@ $resultsYellow: rgba(255,149,5,0.5);
 //Media Queries Styles
 //******************************
 
-@media (max-width: 1039px) {
-	
+// Landscape phone to portrait table-layout
+@media (max-width: 940px) {
+	.background {
+		background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)), url("../images/heroImageMedium.jpg"), linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
+	}
+	.results {
+		.songInfo {
+		flex: 1 0 50%;
+		}
+	}
 }
 
-//comment
+// Landscape phones and down
+@media (max-width: 767px) {
+	.background {
+		background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)), url("../images/heroImageSmall.jpg"), linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
+	}
+}
+
+//Portrait phones and down
+@media (max-width: 480px) {
+	.background {
+		background-position: 0% 0%;
+	}
+	.results {
+		.songInfo {
+		flex: 1 0 100%;
+		}
+	}
+}

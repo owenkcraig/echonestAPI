@@ -51,20 +51,20 @@ app.displayPlaylist = function(filteredSongDetails, data) {
                 songIDs.push(spotifyID);
             var logo = $('<img>').attr('src', '../images/logo.svg')
             var song = $('<h3>').text(songDetails.title)
-            var songTitle = $('<div>').append(logo, song).addClass('songTitle');
             var songArtist = $('<h4>').text(songDetails.artist_name);
-            var finalSongInfo = $('<div>').addClass('songInfo').append(songTitle, songArtist);
+            var songTitle = $('<div>').append(logo, songArtist).addClass('songTitle');
+            var finalSongInfo = $('<div>').addClass('songInfo').append(songTitle, song);
                 $('#results').append(finalSongInfo);
             }
                 if (app.userWorkoutMin == 120) {
                     $('.songTitle').addClass("blue");
-                    $('h4').addClass('blueTypo');
+                    $('h3').addClass('blueTypo');
                 } else if (app.userWorkoutMin == 140) {
                     $('.songTitle').addClass("yellow");
-                    $('h4').addClass('yellowTypo');
+                    $('h3').addClass('yellowTypo');
                 } else {
                     $('.songTitle').addClass("red");
-                    $('h4').addClass('redTypo');
+                    $('h3').addClass('redTypo');
                 }
         });
 

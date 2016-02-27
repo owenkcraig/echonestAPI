@@ -33,12 +33,13 @@
 						<input type="radio" name="workoutIntensity" value="140" id="medium" required="required">
 						<label for="hard">Hard</label>
 						<input type="radio" name="workoutIntensity" value="160" id="hard" required="required">
-					<details class="clearfix">
-					  <summary>Find Your Workout Intensity Level</summary>
-					  <p>Low, heart rate is 120-140 beats per minute.</p>
-					  <p>Medium, heart rate is 140-160 beats per minute.</p>
-					  <p>Hard, heart rate is more than 160 beats per minute.</p>
-					</details>
+					<div class="toggle">
+						<a href="#" id="moreInfo">Find Your Workout Intensity</a>
+					 	<div class="toggleDiv">
+					 	 	<p class="blue">Low heart rate is 120-140 beats per minute.</p>
+					 	 	<p class="yellow">Medium heart rate is 140-160 beats per minute.</p>
+					 	 	<p class="red">Hard heart rate is more than 160 beats per minute.</p>
+					 	</div>
 					</fieldset>
 					<section class="submitButton">
 						<input type="submit" class="submit" value="Find me a playlist">
@@ -54,9 +55,20 @@
 			</section>
 	<footer>
 		<div class="wrapper">
-			<p>Website © 2016 by <a href = "http://aureliedufour.com">Aurelie Dufour</a>, <a href = "http://karifairweather.com">Kari Fairweather</a> & <a href = "http://owencraig.ca">Owen Craig</a></p>
-			<p>Built using the <a href="http://the.echonest.com/">Echonest API</a></p>
-			<img src="images/echonestLogo.png" alt="">
+			<div class="footerLeft">
+				<div class="footerLeftLine1">	
+					<p>Website © 2016 by <a href = "http://aureliedufour.com">Aurelie Dufour</a>,</p>
+				</div>
+				<div class="footerLeftLine2">
+					<p><a href = "http://karifairweather.com">Kari Fairweather</a> & <a href = "http://owencraig.ca">Owen Craig</a></p>
+				</div>
+			</div>
+			<div class="footerRight">
+				<!-- <p>Built using the <a href="http://the.echonest.com/">Echonest API</a></p>
+				<p>And the <a href="https://developer.spotify.com/web-api/">Spotify API</a></p> -->
+				<img src="images/echonestLogo.png" alt="">
+				<img src="images/spotifyLogo.png" alt="">
+			</div>
 		</div>
 			
 	</footer>

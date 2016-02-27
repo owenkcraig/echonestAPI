@@ -19,6 +19,7 @@ $resultsYellow: rgba(255,149,5,0.5);
 	background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)), url("../images/heroImageLarge.jpg"), linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
 	background-position: center;
 	background-size: cover;
+	background-attachment: fixed;
 	padding: 2rem;
 	color: #fff;
 }
@@ -28,6 +29,7 @@ $resultsYellow: rgba(255,149,5,0.5);
 @import "_header";
 @import "_userinput";
 @import "_results";
+@import "_footer";
 
 //******************************
 //Media Queries Styles
@@ -55,7 +57,7 @@ $resultsYellow: rgba(255,149,5,0.5);
 //Portrait phones and down
 @media (max-width: 480px) {
 	.background {
-		background-position: 0% 0%;
+		background-size: cover;
 	}
 	.results {
 		.songInfo {

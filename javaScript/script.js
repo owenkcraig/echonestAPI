@@ -112,6 +112,9 @@ app.getSpotifyPlayButton = function(songIDs) {
 app.init = function() {
 	$('form').on('submit', function(e) {
 		e.preventDefault();
+        $('html, body').animate ({
+            scrollTop: $("section#results").offset().top
+        },2200);
 		app.userInput = $('input[type=text]').val();
 		app.userWorkoutMin = $('input[type=radio]:checked').val();
 		app.userWorkoutMax = parseFloat(app.userWorkoutMin) + parseFloat(20);
@@ -124,7 +127,16 @@ $(function() {
 		$('.workout label').removeClass("selected");
 		$(this).addClass("selected");
 	}); //End of radio button click styles
-	app.init();
+    
+    app.init();
+    
+    $('#moreInfo').click(function(e) {
+        e.preventDefault();
+        $('.toggleDiv').slideToggle('slow', function(){
+            });
+    });
+
+    
 });
 
 

@@ -82,7 +82,7 @@ app.getSpotifyPlayButton = function(songIDs) {
     var tembed = embed.replace('TRACKS', tracks);
     // tembed = tembed.replace('PREFEREDTITLE', title);
     var playlist = $("<div class='playlist'>").html(tembed);
-    $('#results').append(playlist);
+    $('#playlistResult').append(playlist);
     app.getPlaylist(tracks);
 }
 

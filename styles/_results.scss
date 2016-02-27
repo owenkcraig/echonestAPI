@@ -12,6 +12,10 @@
 		background: $white;
 		color: $white;
 		margin: 20px;
+
+		h3 {
+			margin: 30px 0;
+		}
 		
 		.songTitle {
 		display: flex;
@@ -49,13 +53,13 @@
 		color: $blue;
 	}
 	.yellow {
-		background-color: $resultsYellow;
+		background: linear-gradient(to right,rgba(255,149,5,1), rgba(255,149,5,0.8));;
 	}
 	.yellowTypo {
 		color: $yellow;
 	}
 	.red {
-		background-color: $resultsRed;
+		background: linear-gradient(to right,rgba(236,78,32, 1), rgba(236,78,32, 0.8));
 	}
 	.redTypo {
 		color: $red;

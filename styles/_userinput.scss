@@ -531,6 +531,16 @@
 	}
 }
 
+@media(max-width: 375px) {
+	.userinput input[type=text] {
+		margin: 0 0 15px;
+	}
+
+	.userinput input[type=submit] {
+		margin: 15px 0;
+	}
+}
+
 @media (max-width: 365px) {
 	label {
 		margin: 0 20px 0;

@@ -49,18 +49,22 @@ app.displayPlaylist = function(filteredSongDetails, data) {
             var spotify = songDetails.tracks[0].foreign_id;
             var spotifyID = spotify.toString().replace("spotify:track:", "");
                 songIDs.push(spotifyID);
-
-            var songTitle = $('<h3>').text(songDetails.title);
+            var logo = $('<img>').attr('src', '../images/logo.svg')
+            var song = $('<h3>').text(songDetails.title)
+            var songTitle = $('<div>').append(logo, song).addClass('songTitle');
             var songArtist = $('<h4>').text(songDetails.artist_name);
             var finalSongInfo = $('<div>').addClass('songInfo').append(songTitle, songArtist);
                 $('#results').append(finalSongInfo);
             }
                 if (app.userWorkoutMin == 120) {
-                    $('.songInfo').addClass("blue");
+                    $('.songTitle').addClass("blue");
+                    $('h4').addClass('blueTypo');
                 } else if (app.userWorkoutMin == 140) {
-                    $('.songInfo').addClass("yellow");
+                    $('.songTitle').addClass("yellow");
+                    $('h4').addClass('yellowTypo');
                 } else {
-                    $('.songInfo').addClass("red");
+                    $('.songTitle').addClass("red");
+                    $('h4').addClass('redTypo');
                 }
         });
 

@@ -3,28 +3,47 @@
 	flex-flow: row wrap;
 	background: #000;
 	margin: 0;
+	font-family: "Lato";
 	
 	.songInfo {
-		flex: 1 0 33%;
+		flex: 1 0 calc(33.3% - 40px);
 		border: 1px solid black;
 		text-align: center;
-		color: $white;
 		background: $white;
+		color: $white;
+		margin: 20px;
+		
 		.songTitle {
 		display: flex;
+		position: relative;
 
-		img, h3 {
-			flex: 1 0 50%;
+		img {
+			width: 90px;
+			padding: 1rem;
+			height: 100%;
+			margin: 0 0 0 1rem;
+
+			}
+
+		h4 {
+			flex: 1 0 70%;
+			text-align: left;
+			margin: 0;
+			padding: 1rem;
+  			position: absolute;
+  			top: 50%;
+  			transform: translateY(-50%);
+  			font-family: "Oswald";
 		}
 	}
 
 		
-		h4 {
-			font-style: italic;
-		}
+		// h4 {
+		// 	font-style: italic;
+		// }
 	}
 	.blue {
-		background: linear-gradient(to right, rgba(1,111,185,0.8),rgba(1,111,185,1));
+		background: linear-gradient(to right,rgba(1,111,185,1), rgba(1,111,185,0.8));
 	}
 	.blueTypo {
 		color: $blue;

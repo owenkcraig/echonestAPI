@@ -55,7 +55,7 @@ $resultsYellow: rgba(255,149,5,0.5);
 //Portrait phones and down
 @media (max-width: 480px) {
 	.background {
-		background-position: 0% 0%;
+		background-size: cover;
 	}
 	.results {
 		.songInfo {

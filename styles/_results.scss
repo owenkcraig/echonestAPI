@@ -87,9 +87,21 @@
 
 			iframe {
 				width:100%; 
-				min-height:455px;
+				min-height:380px;
 			}
-		}	
+		}
+		.stickyH3 {
+			color: $white;
+			text-align: center;
+		}
+		h3.fixed {
+	    	width: 29%;
+	    	position: fixed;
+	    	right: 10px;
+	    	top: 385px;
+	    	right: 2px;
+	    	z-index: 100;
+		}
 	}
 
 	 .fixed {

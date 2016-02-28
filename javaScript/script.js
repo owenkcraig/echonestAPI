@@ -139,7 +139,6 @@ app.init = function() {
 	});
 };
 
-$(function() {
 	$('.workout label').on('click',  function() {
 		$('.workout label').removeClass("selected");
 		$(this).addClass("selected");
@@ -153,7 +152,19 @@ $(function() {
             });
     });
     
-});
+    var currentWidth = $(window).width();
+    if (currentWidth >= 750){
+    
+    $(window).scroll(function() {
+        var distanceFromTop = $(this).scrollTop();
+        if (distanceFromTop >= $('#background').height()) {
+            $('.playlist').addClass('fixed');
+        } else {
+            $('.playlist').removeClass('fixed');
+        }
+    });
+        };
+    
 
 
 // Bonus points:

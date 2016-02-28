@@ -2,8 +2,8 @@
 	display: flex;
 	flex-flow: row wrap;
 	background: #000;
-
-
+	display: relative;
+	
 	.results {
 		display: flex;
 		flex-flow: row wrap;
@@ -13,42 +13,43 @@
 		flex: 1 0 70%;
 
 		.songInfo {
-			flex: 1 0 calc(33.3% - 40px);
+			flex: 1 0 calc(50% - 20px);
 			border: 1px solid black;
 			text-align: center;
 			background: $white;
 			color: $white;
-			margin: 20px;
-			border-radius: 0 20px 0 20px;
+			margin: 15px 10px;
+			// border-radius: 0 20px 0 20px;
+			display: flex;
 
 
 			h3 {
 				padding: 0.5rem;
+				flex: 1 0 55%;
 			}
 			
 			.songTitle {
 			display: flex;
 			position: relative;
-			border-radius: 0 20px 0 0;
-
+			// border-radius: 0 20px 0 0;
+			flex: 1 0 45%;
 
 			img {
 				width: 80px;
 				padding: 1rem;
 				height: 100%;
-				margin: 0 0 0 1rem;
+				margin: 0;
 
 				}
 
 			h4 {
-				flex: 1 0 70%;
 				text-align: left;
 				margin: 0;
 				padding: 0.5rem;
 	  			position: absolute;
+	  			font-family: "Oswald";
 	  			top: 50%;
 	  			transform: translateY(-50%);
-	  			font-family: "Oswald";
 			}
 		}
 
@@ -79,6 +80,7 @@
 	.playlistResult {
 		position: relative;
 		flex: 1 0 29%;
+
 		.playlist {
 			flex: 1 100%;
 
@@ -98,33 +100,30 @@
     	z-index: 100;
 	}
 	
-	
 	.hidden {
 		display: none;
 	}
 
 	.backToTop {
-	  position: fixed;
-	  bottom: 0;
-	  right: 0;
+	  // position: relative;
+	  // bottom: 0;
+	  // left: 0;
 	  display: inline-block;  
 	  padding: 1em;
 	  margin: 1em;
 	  background: #E8E8E8;
-	  border: 2px solid #000;
 	}
+
 	.backToTop:hover {
 	  cursor: pointer;
 	}
 	
 	i.fa {
-		position: absolute;
-		z-index: 5;
-		margin-right: 20px;
-		margin-bottom: 20px;
+		position: relative;
+		z-index: 100;
 		font-size: 50px;
-		bottom: 0;
-		right:0;
+		color: $white;
+		margin: 1rem 2rem;
 	}
 }
 
@@ -133,11 +132,11 @@
 //******************************
 
 // Landscape phone to portrait table-layout
-@media (max-width: 940px) {
+@media (max-width: 1000px) {
 	.finalResult {
 		.results {
 			.songInfo {
-				flex: 1 0 50%;
+				flex: 1 0 calc(100% - 20px);
 			}
 		}
 	}
@@ -147,6 +146,26 @@
 @media (max-width: 767px) {
 	.finalResult {
 		display: block;
+	}
+
+	.playlistResult {
+		position: relative;
+		width: 60%;
+		margin: 0 auto;
+
+		.playlist {
+			flex: 1 0 100%;
+
+			iframe {
+				width:100%; 
+				min-height:0;
+			}
+		}	
+	}
+	.fixed {
+    	width: 70%;
+    	height: 0%;
+    	position: relative;
 	}
 }
 

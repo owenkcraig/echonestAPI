@@ -4,6 +4,7 @@
 
 	fieldset {
 		border: none;
+		padding: 0;
 	}
 
 	input, input:focus, input:active, ::-webkit-input-placeholder, a {
@@ -11,17 +12,22 @@
 	}
 
 	input[type=text], input[type=submit] {
-		padding: 1.5rem 2rem;
+		padding: 15px 25px;
 		border-radius: 100px;
 		border: 2px solid transparent;
 		width: 40%;
-		margin: 3rem;
+		margin: 50px;
 		background-color: $white;
 	}
+	input[type=submit] {
+		margin: 60px 0 80px;
+
+	}
+
 
 	input:-webkit-autofill {
-	-webkit-box-shadow: 0 0 0px 1000px $white inset;
-	border: 1px solid $white;
+		-webkit-box-shadow: 0 0 0px 1000px $white inset;
+		border: 1px solid $white;
 	}
 
 	input[type="radio"] {
@@ -33,6 +39,7 @@
 		display: inline-block;
 		width: 14%;
 		font-family: "Oswald";
+		letter-spacing: 1.5px;
 		text-transform: uppercase;
 		position: relative;
 		margin-top: 30px;
@@ -115,8 +122,8 @@
 	}
 	
 	.toggle {
-		margin: 0 auto;
-		padding-top: 10px;
+		margin:0 auto 40px;
+		
 	}
 	
 	a#moreInfo {
@@ -147,7 +154,7 @@
 
 	div.toggleDiv {
 		display: none;
-		margin: 0 auto;
+		margin: 5px auto;
 		max-width: 400px;
 		padding:10px;
 		background-color: rgba(0,0,0,.4);

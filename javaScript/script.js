@@ -75,6 +75,8 @@ app.displayPlaylist = function(filteredSongDetails, data) {
 }
 
 app.getSpotifyPlayButton = function(songIDs) {
+    $('#playlistResult').html('');
+
     var embed = '<iframe src="https://embed.spotify.com/?uri=spotify:trackset:workout:TRACKS" style= frameborder="0" allowtransparency="true"></iframe>';
             // console.log(spotifySon
     var tracks = songIDs;

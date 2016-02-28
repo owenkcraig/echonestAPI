@@ -1,13 +1,17 @@
 .finalResult {
 	display: flex;
 	flex-flow: row wrap;
+	background: #000;
+
+
 	.results {
 		display: flex;
 		flex-flow: row wrap;
 		background: #000;
 		margin: 0;
 		font-family: "Lato";
-		flex: 1 0 75%;
+		flex: 1 0 70%;
+
 		.songInfo {
 			flex: 1 0 calc(33.3% - 40px);
 			border: 1px solid black;
@@ -15,6 +19,8 @@
 			background: $white;
 			color: $white;
 			margin: 20px;
+			border-radius: 0 20px 0 20px;
+
 
 			h3 {
 				margin: 30px 0;
@@ -23,6 +29,8 @@
 			.songTitle {
 			display: flex;
 			position: relative;
+			border-radius: 0 20px 0 0;
+
 
 			img {
 				width: 90px;
@@ -70,16 +78,26 @@
 	}
 	.playlistResult {
 		position: relative;
-		flex: 1 0 25%;
+		flex: 1 0 29%;
 		.playlist {
 			flex: 1 100%;
 
 			iframe {
 				width:100%; 
-				min-height:800px;
+				min-height:455px;
 			}
 		}	
 	}
+
+	 .fixed {
+    	width: 29%;
+    	position: fixed;
+    	right: 10px;
+    	top: 8px;
+    	right: 2px;
+    	z-index: 100;
+	}
+	
 	
 	.hidden {
 		display: none;

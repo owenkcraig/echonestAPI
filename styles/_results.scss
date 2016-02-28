@@ -69,6 +69,7 @@
 		}
 	}
 	.playlistResult {
+		position: relative;
 		flex: 1 0 25%;
 		.playlist {
 			flex: 1 100%;
@@ -78,6 +79,34 @@
 				min-height:800px;
 			}
 		}	
+	}
+	
+	.hidden {
+		display: none;
+	}
+
+	.backToTop {
+	  position: fixed;
+	  bottom: 0;
+	  right: 0;
+	  display: inline-block;  
+	  padding: 1em;
+	  margin: 1em;
+	  background: #E8E8E8;
+	  border: 2px solid #000;
+	}
+	.backToTop:hover {
+	  cursor: pointer;
+	}
+	
+	i.fa {
+		position: absolute;
+		z-index: 5;
+		margin-right: 20px;
+		margin-bottom: 20px;
+		font-size: 50px;
+		bottom: 0;
+		right:0;
 	}
 }
 

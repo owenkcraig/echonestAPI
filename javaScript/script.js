@@ -115,6 +115,23 @@ app.init = function() {
         $('html, body').animate ({
             scrollTop: $("section#results").offset().top
         },2200);
+        
+        $(function () {
+            $('#backToTop').removeClass('hidden');
+        });
+        
+        var $backToTop = $("#backToTop");
+        $backToTop.hide();
+        $(window).on('scroll', function() {
+          if ($(this).scrollTop() > 100) {
+            $backToTop.fadeIn();
+          } else {
+            $backToTop.fadeOut();
+          }
+        });
+        $backToTop.on('click', function(e) {
+          $("html, body").animate({scrollTop: 0}, 500);
+        });
 		app.userInput = $('input[type=text]').val();
 		app.userWorkoutMin = $('input[type=radio]:checked').val();
 		app.userWorkoutMax = parseFloat(app.userWorkoutMin) + parseFloat(20);
@@ -135,7 +152,6 @@ $(function() {
         $('.toggleDiv').slideToggle('slow', function(){
             });
     });
-
     
 });
 

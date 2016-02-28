@@ -1,18 +1,11 @@
-// Ask the user for favourite artist (input text)
-
-// Ask the user for workout routine (dropdown: light, moderate, intense)
-
-// Search Echonest API for similar artists (http://developer.echonest.com/api/v4/artist/similar?api_key=BQEDTLGZNQGJ0GMQM&name=XXXXXXXXXX)
-
 var app = {};
 
 app.apiKey = 'BQEDTLGZNQGJ0GMQM';
 app.apiSpotifykey = '1684dbdc859241b88298757a8ee38711'
 app.apiPlaylistUrl = 'http://developer.echonest.com/api/v4/playlist/static';
-// app.apiHottestSongsUrl = 'http://developer.echonest.com/api/v4/song/search';
 app.apiSongSummaryUrl = 'http://developer.echonest.com/api/v4/song/profile';
 
-// Return list of similar artists
+// Return list of similar artists, filtered by tempo and song hotness.
 
 app.getArtists = function() {
 	$.ajax({
@@ -37,13 +30,13 @@ app.getArtists = function() {
 		app.displayPlaylist(response);
     });
 };
-// Grab artist ID for similar artists
+
+// Display the playlist on the page and get Spotify song IDs.
 app.displayPlaylist = function(filteredSongDetails, data) {
     $('#results').html('');
     var songs = filteredSongDetails.response.songs;
     var songTitle = '';
     var songIDs =[];
-
         $.each(songs, function(i, songDetails){
             if(songDetails.tracks[0] !== undefined) {
             var spotify = songDetails.tracks[0].foreign_id;
@@ -67,29 +60,25 @@ app.displayPlaylist = function(filteredSongDetails, data) {
                     $('h3').addClass('redTypo');
                 }
         });
-
         songIDs = songIDs.toString().replace("spotify:track:", "");
-        console.log(songIDs)
         app.getSpotifyPlayButton(songIDs)
-        // app.getPlaylist(songIDs)
 }
 
+// Display Spotify playlist
 app.getSpotifyPlayButton = function(songIDs) {
     $('#playlistResult').html('');
 
     var embed = '<iframe src="https://embed.spotify.com/?uri=spotify:trackset:workout:TRACKS" style= frameborder="0" allowtransparency="true"></iframe>';
-            // console.log(spotifySon
     var tracks = songIDs;
     console.log(tracks)
     var tembed = embed.replace('TRACKS', tracks);
-    // tembed = tembed.replace('PREFEREDTITLE', title);
     var playlist = $("<div class='playlist'>").html(tembed);
     $('#playlistResult').append(playlist);
     app.getPlaylist(tracks);
 }
 
 //Get the cover of the album..
-// as a design choice, decide not to use them
+// As a design choice we decided not to use them but wanted to keep the code.
 // app.getPlaylist = function(songIDs) {
 //     $.ajax({
 //         url: "https://api.spotify.com/v1/tracks",
@@ -140,7 +129,7 @@ app.init = function() {
 		app.getArtists();
 	});
 };
-
+    // Radio button click styles
 	$('.workout label').on('click',  function() {
 		$('.workout label').removeClass("selected");
 		$(this).addClass("selected");
@@ -165,7 +154,7 @@ app.init = function() {
             $('.playlist').removeClass('fixed');
         }
     });
-        };
+};
     
 
 

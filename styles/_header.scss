@@ -7,16 +7,17 @@ header {
 
 	h1 {
 		color: $white;
+		letter-spacing: 0.5rem;
 	}
 
 	.imgFlex {
-		flex: 1 0 calc(30% - 25px);
+		flex: 1 0 18%;
 		padding: 32px 32px 0;
 		margin-right: 10px;
 
 		img {
-			width: 100px;
-			margin: 0 15%;
+			width: 120px;
+			margin: 0 10%;
 			display: block;
 		}
 	}
@@ -37,17 +38,19 @@ header {
 //******************************
 
 // Landscape phone to portrait table-layout
-@media (max-width: 940px) {
+@media (max-width: 990px) {
 	header {
 		text-align: center;
 		.imgFlex {
 			flex: 1 0 calc(100% - 25px);
 			padding-top: 0;
 			margin: 0 auto;
+
 			img {
 				margin: 0 auto;
 			}
 		}
+
 		div.flex {
 			flex: 1 0 100%;
 		}
@@ -55,9 +58,6 @@ header {
 }
 
 // Landscape phones and down
-@media (max-width: 767px) {
-	
-}
 
 //Portrait phones and down
 @media (max-width: 480px) {

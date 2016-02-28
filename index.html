@@ -28,19 +28,20 @@
 						<input type="text" placeholder="Find music similar to..." id="artistInput" required="required">
 					</fieldset>
 					<fieldset class="workout">
+					<div class="toggle">
+						<a href="#" id="moreInfo">Set the intensity of your workout:</a>
+					 	<div class="toggleDiv">
+					 	 	<p class="blue">Low heart rate is 120-140 beats per minute.</p>
+					 	 	<p class="yellow">Medium heart rate is 140-160 beats per minute.</p>
+					 	 	<p class="red">Hard heart rate is more than 160 beats per minute.</p>
+					 	</div>
+					 </div>
 						<label for="low">Low</label>
 						<input type="radio" name="workoutIntensity" value="120" id="low" required="required">
 						<label for="medium">Medium</label>
 						<input type="radio" name="workoutIntensity" value="140" id="medium" required="required">
 						<label for="hard">Hard</label>
 						<input type="radio" name="workoutIntensity" value="160" id="hard" required="required">
-					<div class="toggle">
-						<a href="#" id="moreInfo">Find Your Workout Intensity</a>
-					 	<div class="toggleDiv">
-					 	 	<p class="blue">Low heart rate is 120-140 beats per minute.</p>
-					 	 	<p class="yellow">Medium heart rate is 140-160 beats per minute.</p>
-					 	 	<p class="red">Hard heart rate is more than 160 beats per minute.</p>
-					 	</div>
 					</fieldset>
 					<section class="submitButton">
 						<input type="submit" class="submit" value="Find me a playlist">
@@ -51,13 +52,12 @@
 	</div>
 	<section class="finalResult">	
 			<section class="results" id="results">
-				<div class="wrapper">
-					
-				</div>
 			</section>
 			<section class="playlistResult" id="playlistResult">
-				<div id="backToTop" class="hidden"><i class="fa fa-arrow-circle-o-up"></i></div>
 			</section>
+			<div id="backToTop" class="hidden">
+				<i class="fa fa-arrow-circle-o-up"></i>
+			</div>
 		</section>
 	<footer>
 		<div class="wrapper">

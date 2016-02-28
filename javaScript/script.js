@@ -74,6 +74,7 @@ app.getSpotifyPlayButton = function(songIDs) {
     var tembed = embed.replace('TRACKS', tracks);
     var playlist = $("<div class='playlist'>").html(tembed);
     $('#playlistResult').append(playlist);
+    $('#playlistResult').append('<h3 class="stickyH3">Have a Spotify account? Listen to the playlist here!</h3>');
     app.getPlaylist(tracks);
 }
 
@@ -150,8 +151,10 @@ app.init = function() {
         var distanceFromTop = $(this).scrollTop();
         if (distanceFromTop >= $('#background').height()) {
             $('.playlist').addClass('fixed');
+            $('.stickyH3').addClass('fixed');
         } else {
             $('.playlist').removeClass('fixed');
+            $('.stickyH3').removeClass('fixed');
         }
     });
 };

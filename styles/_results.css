@@ -1,0 +1,8 @@
+.results {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.results .songInfo {
+  flex: 1 0 33%;
+}

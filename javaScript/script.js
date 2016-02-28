@@ -152,15 +152,19 @@ app.init = function() {
             });
     });
     
-
-$(window).scroll(function() {
-    var distanceFromTop = $(this).scrollTop();
-    if (distanceFromTop >= $('#background').height()) {
-        $('.playlist').addClass('fixed');
-    } else {
-        $('.playlist').removeClass('fixed');
-    }
-});
+    var currentWidth = $(window).width();
+    if (currentWidth >= 750){
+    
+    $(window).scroll(function() {
+        var distanceFromTop = $(this).scrollTop();
+        if (distanceFromTop >= $('#background').height()) {
+            $('.playlist').addClass('fixed');
+        } else {
+            $('.playlist').removeClass('fixed');
+        }
+    });
+        };
+    
 
 
 // Bonus points:
